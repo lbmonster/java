@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/study?useUnicode=true&serverTimezone=GMT&characterEncoding=utf8
+    dbcp2:
+      min-idle: 5
+      max-idle: 5
+      initial-size: 5
+      max-wait-millis: 200
+server:
+  port: 8088
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*Mapper.xml
+  configuration:
+    # Êä³ösqlÓï¾ä
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    lazy-loading-enabled: false
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+    cache-enabled: false
+    use-generated-keys: true
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  type-aliases-package: classpath:/com/example/study/pojo
+logging:
+  level:
+    com.example.study.service: debug
