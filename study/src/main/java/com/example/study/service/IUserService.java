@@ -10,19 +10,17 @@ public interface IUserService {
     /**
      * 登录方法
      *
-     * @param username 用户名
-     * @param password 密码
+     * @param user 登录信息
      * @return 用户信息
      */
-    User login(String username, String password);
+    User login(User user);
 
     /**
      * 注册方法
      *
-     * @param username 用户名
-     * @param password 密码
+     * @param user 用户信息
      * @return 用户信息
      */
-    User register(String username, String password);
+    User register(User user);
 
 }

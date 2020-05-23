@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.cdyfsz</groupId>
+    <artifactId>zhongdeng.three.party</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <parent>
+        <groupId>club.newepoch</groupId>
+        <artifactId>BaseCloud</artifactId>
+        <version>0.1.16-release</version>
+    </parent>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <mysql.version>8.0.13</mysql.version>
+        <log4j2.version>2.11.2</log4j2.version>
+        <docker-maven-plugin.version>1.1.1</docker-maven-plugin.version>
+        <newepoch-docker-hub>registry.cn-shenzhen.aliyuncs.com/yfsz-test</newepoch-docker-hub>
+        <newepoch-docker-server>192.168.137.98:2375</newepoch-docker-server>
+
+        <workdir>newepoch</workdir>
+        <base.svc.file.api.version>0.2.1-release</base.svc.file.api.version>
+        <zhongdeng.three.patry.api.version>0.0.1-SNAPSHOT</zhongdeng.three.patry.api.version>
+        <base.svc.authcenter.api.version>0.2.4-release</base.svc.authcenter.api.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.cdyfsz</groupId>
+            <artifactId>zhongdeng.three.patry.api</artifactId>
+            <version>${zhongdeng.three.patry.api.version}</version>
+        </dependency>
+        <!--权限api-->
+        <dependency>
+            <groupId>com.cdyfsz</groupId>
+            <artifactId>base.svc.authcenter.api</artifactId>
+            <version>${base.svc.authcenter.api.version}</version>
+        </dependency>
+        <!-- 文件服务api start-->
+        <dependency>
+            <groupId>com.cdyfsz</groupId>
+            <artifactId>base.svc.file.api</artifactId>
+            <version>${base.svc.file.api.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.16</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.16</version>
+        </dependency>
+        <!--数据库-->
+        <dependency>
+            <groupId>club.newepoch</groupId>
+            <artifactId>dbp-boot-start</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.alibaba</groupId>
+                    <artifactId>druid</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.16</version>
+        </dependency>
+        <!--isf-->
+        <dependency>
+            <groupId>club.newepoch</groupId>
+            <artifactId>isf-boot-start</artifactId>
+        </dependency>
+
+
+        <!--日志-->
+        <dependency>
+            <groupId>club.newepoch</groupId>
+            <artifactId>logback-boot-start</artifactId>
+            <!--            <scope>provided</scope>-->
+        </dependency>
+        <!-- Feign start -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <!--参数校验-->
+        <dependency>
+            <groupId>com.cdyfsz</groupId>
+            <artifactId>base.svc.valid</artifactId>
+            <version>0.0.6-test</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>club.newepoch</groupId>
+            <artifactId>ISF-Security</artifactId>
+            <version>0.0.2-release</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+
+        <!-- 国密SM2加密支持 -->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.55</version>
+        </dependency>
+        <dependency>
+            <groupId>com.rfp.sm</groupId>
+            <artifactId>rfspApi</artifactId>
+            <version>1.5.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.9.6</version>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- 直接打包为docker并部署到nexus伺服器 ，qhyf项目组的伺服器不支持docker，采取newepoch技术组的伺服器-->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>${docker-maven-plugin.version}</version>
+                <configuration><!--install阶段也上传，否则只有deploy阶段上传-->
+                    <serverId>newepoch-docker-hub</serverId>
+                    <exposes>28000</exposes>
+                    <registryUrl>${newepoch-docker-hub}</registryUrl>
+                    <dockerHost>http://${newepoch-docker-server}/</dockerHost>
+                    <!--<dockerCertPath>C:\Users\admin\.docker\machine\machines\manager</dockerCertPath>-->
+                    <imageName>${newepoch-docker-hub}/${project.artifactId}:${project.version}</imageName>
+                    <imageTags>
+                        <!--docker的tag为项目版本号、latest-->
+                        <imageTag>${project.version}</imageTag>
+                        <imageTag>latest</imageTag>
+                    </imageTags>
+
+                    <baseImage>java:8</baseImage>
+                    <!--<baseImage>errordeveloper/oracle-jre</baseImage>-->
+                    <workdir>${workdir}</workdir>
+                    <maintainer>${description}-${version}</maintainer>
+                    <entryPoint>["java", "-Djava.security.egd=file:/dev/./urandom", "-jar",
+                        "/${workdir}/${project.build.finalName}.jar"]
+                    </entryPoint>
+
+                    <!--install阶段也上传，否则只有deploy阶段上传-->
+                    <pushImage>true</pushImage>
+                    <pushImageTag>true</pushImageTag>
+                    <!-- 这里是复制 jar 包到 docker 容器指定目录配置 -->
+                    <resources>
+                        <resource>
+                            <targetPath>/${workdir}/</targetPath>
+                            <directory>${project.basedir}/target</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                        <resource>
+                            <targetPath>/${workdir}/</targetPath>
+                            <directory>${project.basedir}/src/main/resources/</directory>
+                            <!--<include>nedbp.conf.json</include>-->
+                        </resource>
+                    </resources>
+                </configuration>
+                <!-- 和maven的指令进行绑定 -->
+                <executions>
+                    <execution>
+                        <id>push-image</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                        <configuration>
+                            <imageName>${newepoch-docker-hub}/${project.artifactId}:${project.version}
+                            </imageName>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <executions>
+                    <execution>
+                        <id>default-compile</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>default-testCompile</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>testCompile</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <inherited>true</inherited>
+                <configuration>
+                    <compilerArgument>-parameters</compilerArgument>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

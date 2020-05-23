@@ -4,7 +4,7 @@ spring:
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://localhost:3306/study?useUnicode=true&serverTimezone=GMT&characterEncoding=utf8
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&serverTimezone=GMT&characterEncoding=utf8
     dbcp2:
       min-idle: 5
       max-idle: 5
@@ -15,7 +15,6 @@ server:
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*Mapper.xml
   configuration:
-    # Êä³ösqlÓï¾ä
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     lazy-loading-enabled: false
     map-underscore-to-camel-case: true
