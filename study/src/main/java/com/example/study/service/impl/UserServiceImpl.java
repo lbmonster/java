@@ -5,8 +5,11 @@ import com.example.study.mapper.IUserMapper;
 import com.example.study.pojo.User;
 import com.example.study.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.DigestUtils;
+import sun.security.provider.MD5;
 
 /**
  * @author libo

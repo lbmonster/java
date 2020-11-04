@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>流程使用文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+        var div1 = document.createElement("div");
+        div1.style.cssText = "clear:both";
+        // create TOC list
+        var outline = document.createElement("div");
+        outline.setAttribute("id", "outline-list");
+        outline.style.cssText = "border:solid 1px #ccc; background:#eee; min-width:200px;padding:4px 10px;";
+        
+        var ele_p = document.createElement("p");
+        ele_p.style.cssText = "text-align: left; margin: 0;";
+        outline.appendChild(ele_p);
+        
+        var ele_span = document.createElement("span");
+        // ele_span.style.cssText = "float: left;";
+        var ele_text=document.createTextNode("TOC");
+        ele_span.appendChild(ele_text);
+        
+        var ele_a = document.createElement("a");
+        ele_a.appendChild(document.createTextNode("[+]"));
+        ele_a.setAttribute("href", "#");
+        ele_a.setAttribute("onclick", "javascript:return openct(this);");
+        ele_a.setAttribute("title", "Click to Open TOC");
+
+        ele_span.appendChild(ele_a);
+        ele_p.appendChild(ele_span);
+
+        var ele_ol = document.createElement("ol");
+        ele_ol.style.cssText = "display:none;margin-left:14px;padding-left:14px;line-height:160%;";
+        ele_ol.setAttribute("id", "outline_ol");
+        outline.appendChild(ele_ol);
+        var div1 = document.createElement("div");
+        div1.style.cssText = "clear:both";
+
+        document.body.insertBefore(outline, document.body.childNodes[0]);
+        // get all the headlines
+        var headers = document.querySelectorAll('h1,h2,h3,h4,h5,h6');
+        if (headers.length < 2)
+          return;
+
+        // -----
+        var old_h = 0, ol_cnt = 0;
+        // -----
+        
+        for (var i = 0; i < headers.length; i++) {
+          
+          var ele_ols = null;
+            // get H* and prepare for the ordered list 
+            var header = headers[i];
+            //header.setAttribute("id", "t" + i + header.tagName);
+            header.setAttribute("id", header.textContent);
+            var h = parseInt(header.tagName.substr(1), 10);
+            // -----
+            if (!old_h){
+              old_h = h;
+            }
+            
+            if (h > old_h) {
+              ele_ols = document.createElement("ol");
+              var ele_Current = ele_ol;
+              if(ele_Current && ol_cnt > 0){
+                var temp = ol_cnt;
+                while(temp > 0){
+                  ele_Current = ele_Current.lastChild;
+                  temp--;
+                }
+              }
+              ele_Current.lastChild.appendChild(ele_ols);
+              ol_cnt++;
+            } else if (h < old_h && ol_cnt > 0) {
+              if (h == 1) {
+                while (ol_cnt > 0) {
+                  ol_cnt--;
+                }
+              } else {
+                ele_ols = document.createElement("ol");
+                var ele_Current = ele_ol;
+                if(ele_Current && ol_cnt > 0){
+                  var temp = ol_cnt;
+                  while(temp > 1){
+                    ele_Current = ele_Current.lastChild;
+                    temp--;
+                  }
+                }
+              ele_Current.appendChild(ele_ols);
+
+              ol_cnt--;
+            }
+            }
+            if (h == 1) {
+              while (ol_cnt > 0) {
+                ol_cnt--;
+              }
+            }
+            old_h = h;
+            // -----
+            if (ele_ols){
+              ele_li = document.createElement("li")
+              ele_ols.appendChild(ele_li);
+            } else {
+              ele_li = document.createElement("li")
+              ele_ol.appendChild(ele_li);
+            }
+            
+            var a = document.createElement("a");
+            // set href for the TOC item 
+            //a.setAttribute("href", "#t" + i + header.tagName);
+            a.setAttribute("href", "#" + header.textContent);
+            // TOC item text
+            a.innerHTML = header.textContent;
+
+            
+            ele_li.appendChild(a);
+          }
+          // -----
+          while (ol_cnt > 0) {
+            ol_cnt--;
+          }
+          // -----
+
+        });
+        
+// 
+function openct(e) {
+  if (e.innerHTML == '[+]') {
+    // createTextNode
+    e.setAttribute('title', 'collapse');
+    e.innerHTML = '[-]';
+    var element = document.getElementById("outline_ol");
+    element.style.cssText = "margin-left:14px;padding-left:14px;line-height:160%;";
+  } else {
+    e.setAttribute('title', 'expand');
+    e.innerHTML = '[+]';
+    var element = document.getElementById("outline_ol");
+    element.style.cssText = "display:none;margin-left:14px;padding-left:14px;line-height:160%;";
+  }
+  e.blur();
+  return false;
+}
+</script>
+</head>
+<body>
+<p>BPM使用手册</p>
+<h1>1、调查任何完成节点的人，选择之前已经做过节点，重新发起流程，对应的画面可操作性内容与之前流程一致</h1>
+<p>第一步 调用<a href="#thistory">查询流程任务履历接口</a>获取已完成节点信息</p>
+<p>第二步 调用</p>
+<p>重新启动流程并完成到某个节点接口：</p>
+<p>1.1 请求方法：POST</p>
+<p>1.2 地址：/api/newbpm/process/instance/start/and/complete/node</p>
+<p>1.3 描述：重新启动流程并完成到某个节点</p>
+<p>1.4 请求参数：</p>
+<table>
+<thead>
+<tr>
+	<th>参数名称</th>
+	<th>中文名</th>
+	<th>类型</th>
+	<th>是否必传</th>
+	<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>apiReq</td>
+	<td>请求信息</td>
+	<td>ApiReq</td>
+	<td>是</td>
+	<td>系统请求参数</td>
+</tr>
+<tr>
+	<td>instanceId</td>
+	<td>流程实例ID</td>
+	<td>String</td>
+	<td>是</td>
+	<td>流程实例ID</td>
+</tr>
+<tr>
+	<td>id</td>
+	<td>流程节点ID</td>
+	<td>String</td>
+	<td>是</td>
+	<td>body  需要到的某个节点ID</td>
+</tr>
+<tr>
+	<td>name</td>
+	<td>流程节点名称</td>
+	<td>String</td>
+	<td>是</td>
+	<td>body 需要到的某个节点名称</td>
+</tr>
+</tbody>
+</table>
+<p><img src="img/re1.png" alt="avatar" /></p>
+<p>1.5 返回信息</p>
+<table>
+<thead>
+<tr>
+	<th>参数名称</th>
+	<th>中文名</th>
+	<th>类型</th>
+	<th>是否必传</th>
+	<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>processDefinitionId</td>
+	<td>流程定义ID</td>
+	<td>String</td>
+	<td>是</td>
+	<td>流程定义ID</td>
+</tr>
+<tr>
+	<td>processDefinitionName</td>
+	<td>流程定义名称</td>
+	<td>String</td>
+	<td>是</td>
+	<td>流程定义名称</td>
+</tr>
+<tr>
+	<td>bizId</td>
+	<td>业务ID</td>
+	<td>String</td>
+	<td>是</td>
+	<td>业务ID</td>
+</tr>
+<tr>
+	<td>processInstanceId</td>
+	<td>流程实例ID</td>
+	<td>String</td>
+	<td>是</td>
+	<td>流程实例ID</td>
+</tr>
+<tr>
+	<td>startTime</td>
+	<td>开始时间</td>
+	<td>String</td>
+	<td>是</td>
+	<td>开始时间</td>
+</tr>
+</tbody>
+</table>
+<p>1.6 示例</p>
+<p><img src="img/re.png" alt="avatar" /></p>
+<h1>2、查看流程图</h1>
+<p>流程实例图接口：</p>
+<p>2.1 请求方法：GET</p>
+<p>2.2 地址：/api/newbpm/process/definition/running/flowchart</p>
+<p>2.3 描述：加载运行中的流程实例图</p>
+<p>2.4 请求参数：</p>
+<table>
+<thead>
+<tr>
+	<th>参数名称</th>
+	<th>中文名</th>
+	<th>类型</th>
+	<th>是否必传</th>
+	<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>apiReq</td>
+	<td>请求信息</td>
+	<td>ApiReq</td>
+	<td>是</td>
+	<td>系统请求参数</td>
+</tr>
+<tr>
+	<td>instanceId</td>
+	<td>流程实例ID</td>
+	<td>String</td>
+	<td>是</td>
+	<td>流程实例ID</td>
+</tr>
+</tbody>
+</table>
+<p><img src="img/lct1.png" alt="avatar" /></p>
+<p>2.5 返回信息  流程图
+<img src="img/lct.png" alt="avatar" /></p>
+<h1>3、流程审核时间戳履历</h1>
+<p><span id="thistory">查询流程任务履历接口：</span></p>
+<p>3.1 请求方法：GET</p>
+<p>3.2 地址：/api/newbpm/task/history</p>
+<p>3.3 描述：查询流程以完成任务履历</p>
+<p>3.4 请求参数：</p>
+<table>
+<thead>
+<tr>
+	<th>参数名称</th>
+	<th>中文名</th>
+	<th>类型</th>
+	<th>是否必传</th>
+	<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>apiReq</td>
+	<td>请求信息</td>
+	<td>ApiReq</td>
+	<td>是</td>
+	<td>系统请求参数</td>
+</tr>
+<tr>
+	<td>instanceId</td>
+	<td>流程实例ID</td>
+	<td>String</td>
+	<td>是</td>
+	<td>流程实例ID</td>
+</tr>
+</tbody>
+</table>
+<p><img src="img/ll1.png" alt="avatar" /></p>
+<p>3.5 返回信息</p>
+<table>
+<thead>
+<tr>
+	<th>参数名称</th>
+	<th>中文名</th>
+	<th>类型</th>
+	<th>是否必传</th>
+	<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>id</td>
+	<td>任务id</td>
+	<td>String</td>
+	<td>是</td>
+	<td>任务id</td>
+</tr>
+<tr>
+	<td>processInstanceId</td>
+	<td>流程实例id</td>
+	<td>String</td>
+	<td>是</td>
+	<td>流程实例id</td>
+</tr>
+<tr>
+	<td>taskDefinitionKey</td>
+	<td>任务节点定义ID</td>
+	<td>String</td>
+	<td>是</td>
+	<td>任务节点定义ID</td>
+</tr>
+<tr>
+	<td>name</td>
+	<td>任务名称</td>
+	<td>String</td>
+	<td>是</td>
+	<td>任务名称</td>
+</tr>
+<tr>
+	<td>assignee</td>
+	<td>任务领取人</td>
+	<td>String</td>
+	<td>是</td>
+	<td>任务领取人</td>
+</tr>
+<tr>
+	<td>startTime</td>
+	<td>开始时间</td>
+	<td>Date</td>
+	<td>是</td>
+	<td>开始时间</td>
+</tr>
+<tr>
+	<td>claimTime</td>
+	<td>签收时间</td>
+	<td>Date</td>
+	<td>是</td>
+	<td>签收时间</td>
+</tr>
+<tr>
+	<td>endTime</td>
+	<td>结束时间</td>
+	<td>Date</td>
+	<td>是</td>
+	<td>结束时间</td>
+</tr>
+<tr>
+	<td>tenantId</td>
+	<td>租户id</td>
+	<td>String</td>
+	<td>是</td>
+	<td>租户id</td>
+</tr>
+<tr>
+	<td>durationInMillis</td>
+	<td>耗时</td>
+	<td>Long</td>
+	<td>是</td>
+	<td>耗时</td>
+</tr>
+</tbody>
+</table>
+<p>3.6 示例</p>
+<p><img src="img/ll.png" alt="avatar" /></p>
+<h1>4、客户自己修改流程后直接发布（仅限于简单的判断项的修改），原有流程的版本保存</h1>
+<p>flowable-modeler集成地址  服务Ip:端口/flowable/index.html#/processes</p>
+<p>iframe集成    参数：tenantId 租户ID</p>
+<p>如：http://localhost:48026/flowable/index.html#/processes?tenantId=2004291633263010001</p>
+<p>modeler集成页面</p>
+<p><img src="img/jc.png" alt="avatar" /></p>
+<p>点击需修改流程的流程</p>
+<p><img src="img/jc0.png" alt="avatar" /></p>
+<p>流程浏览界面</p>
+<p><img src="img/jc1.png" alt="avatar" /></p>
+<p>点击可视化编辑修改流程</p>
+<p><img src="img/jc2.png" alt="avatar" />
+<img src="img/jc3.png" alt="avatar" /></p>
+<p>点击发布按钮发布流程</p>
+<p><img src="img/jc4.png" alt="avatar" />
+<img src="img/jc5.png" alt="avatar" /></p>
+<h1>5、IBPM任务超时提醒</h1>
+<h5>简介：任务超时提醒，即当某个task任务超过设置时间未完成时会触发某个任务（边界定时事件），可以通过发送邮件、短信等方式来告知用户任务在规定时间内未被处理。</h5>
+<h3>5.1.边界定时事件</h3>
+<blockquote>
+<p>如下图红框中所示即为边界定时事件</p>
+</blockquote>
+<p><img src="./img/image-20201020152423955.png" alt="image-20201020152423955" /></p>
+<blockquote>
+<p>当任务到风控经理审核的时候，如果超过设置时间未完成任务则会触发边界定时时间，执行Http任务</p>
+</blockquote>
+<h3>5.2.边界定时事件的配置</h3>
+<blockquote>
+<p>相关属性：</p>
+</blockquote>
+<h5>注意：如果勾选了Cancel activity属性，如上图所示，http必须与某个任务以线连接起来，否则风控经理审核这条线的所有流程将会结束。如果与http任务与独立审批审核连接那么http任务结束后任务将会在独立审批审核任务节点上。</h5>
+<table>
+<thead>
+<tr>
+	<th>名称</th>
+	<th align="left">含义</th>
+	<th>配置示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>Time cycle (e.g. R3/PT10H)</td>
+	<td align="left">循环执行</td>
+	<td>R3/PT10H: 循环3次,每次执行间隔10小时</td>
+</tr>
+<tr>
+	<td>Time duration (e.g. PT5M)</td>
+	<td align="left">只执行一次</td>
+	<td>PT5H: 任务创建5小时后执行</td>
+</tr>
+<tr>
+	<td>Cancel activity</td>
+	<td align="left">是否结束当前任务标示(如果勾选了那么在触发定时器时会结束当前任务,如下图中,如果勾选,那么在触发定时任务时&quot;第一步&quot;这个任务会结束)</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+<h5>5.2.1、在流程图中添加边界定时事件：拖动图中箭头标识的定时任务到画布中风控经理审核节点上</h5>
+<p><img src="./img/image-20201020153239939.png" alt="image-20201020153239939" /></p>
+<h5>5.2.2、设置边界定时事件属性，如下图示例：未设置循环，未结束任务。设置定时时间为60秒</h5>
+<p><img src="./img/image-20201020153654379.png" alt="image-20201020153654379" /></p>
+<h5>5.2.3、设置流程事件触发器：如下图点击空白处，选择Event listeners</h5>
+<p><img src="./img/image-20201020153925964.png" alt="image-20201020153925964" /></p>
+<h5>5.2.4、设置以下事件：TIMER_FIRED、TIMER_SCHEDULED</h5>
+<h5>对应实现：com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener设置完成后保存</h5>
+<p><img src="./img/image-20201020154206527.png" alt="image-20201020154206527" /></p>
+<h3>5.3.HTTP任务配置</h3>
+<blockquote>
+<p>相关属性：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+	<th>名称</th>
+	<th>含义</th>
+	<th>配置示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>Request URL</td>
+	<td>请求URL</td>
+	<td>可配置ul表达式,如 ${http_url},在代码中设置详细值</td>
+</tr>
+<tr>
+	<td>Request body</td>
+	<td>请求体</td>
+	<td>固定配置: ${http_parameter_body}</td>
+</tr>
+<tr>
+	<td>Request method</td>
+	<td>被请求方法类型</td>
+	<td>PUT</td>
+</tr>
+<tr>
+	<td>Request headers</td>
+	<td>请求头</td>
+	<td>可配置ul表达式,如 ${http_header},在代码中设置详细值</td>
+</tr>
+<tr>
+	<td>Request body encoding</td>
+	<td>请求编码格式</td>
+	<td>UTF-8</td>
+</tr>
+</tbody>
+</table>
+<h5>5.3.1、在流程图中添加http任务，拖动Http task到画布中使用流程线连接，点击http任务设置如上表所示配置</h5>
+<p><img src="./img/image-20201020154909158.png" alt="image-20201020154909158" /></p>
+<h5><img src="img/image-20201020155144255.png" alt="image-20201020155144255" /></h5>
+<h5>5.3.2、编写测试接口，如下图：</h5>
+<p><img src="./img/image-20201020155358830.png" alt="image-20201020155358830" /></p>
+<h5>其中HttpTaskDTO引入BPM对应API后即可使用，属性如下图：</h5>
+<p><img src="./img/image-20201020155511517.png" alt="image-20201020155511517" />	</p>
+<h3>5.4.代码示例（忽略了启动流程，以下代码默认节点在业务经理节点）</h3>
+<p><code>java
+@Test
+public void completeTask1() { 
+    apiReq.setTenantId(1L);
+    Map&lt;String,Object&gt; map = new HashMap&lt;&gt;();
+    StringBuilder requestHeaderBuilder = new StringBuilder();    			       
+    requestHeaderBuilder.append(&quot;Content-Type: &quot;);    
+    requestHeaderBuilder.append(&quot;application/json;charset='utf-8'&quot; + &quot;\n&quot;);   
+    requestHeaderBuilder.append(&quot;tenantId: &quot;);    
+    requestHeaderBuilder.append(apiReq.getTenantId() + &quot;\n&quot;);    
+    requestHeaderBuilder.append(&quot;token: &quot;);   
+    requestHeaderBuilder.append(apiReq.getToken()+ &quot;\n&quot;);   
+    requestHeaderBuilder.append(&quot;client: &quot;); 
+    requestHeaderBuilder.append(&quot;base-biz-svc-asset-assignee-management&quot;);    
+    map.put(&quot;http_header&quot;,requestHeaderBuilder);    
+    map.put(&quot;http_url&quot;,&quot;http://192.168.137.109:48026/api/newbpm/task/test&quot;);   
+    taskApi.completeTask(apiReq,&quot;2796e20b-1282-11eb-b826-005056c00001&quot;,map);
+}</code></p>
+<h5>完成业务经理节点任务，边界定时任务时间到设置时间后会自动触发，调用完成任务时传入的http_url的值，其中Request body不需要在参数中写入。BPM会自动处理。</h5>
+<h3>流程示例：<a href="./file/LB-TEST.bpmn20.xml">流程文件</a></h3>
+<h1>6、IBPM任务任意跳转</h1>
+<h5>简介：即当前任务可任意跳转，但是我们还是做出了一些限制。比如：在并行网关内向前进行跳转或普通网关直接向网关内跳转，则违反了并行网关流程的原则。所以现在的任意跳转只能对已经办理过的流程（<span style= "color:red">不能往并行网关内跳转，任务可以从并行网关内跳出，但不能跳入并行网关</span>）进行跳转。</h5>
+<h3>以下将按照下图作为例子，给出示例和用法：</h3>
+<p><img src="./img/4V$LWA%A`5V$G%XY_FIDN9R.png" alt="img" /></p>
+<blockquote>
+<p>如上图所示，如果想要进行任意跳转，则我们需要知道任务所处位置能够往哪些位置上跳转。</p>
+<p>例：当任务处在任务9时，那么只能往任务1进行跳转；任务处在4时，则可以往任务1、9、2进行跳转，当任务处在任务7时，则也只能往任务1、9、2进行跳转。</p>
+</blockquote>
+<h3>任意跳转需要用的接口如下：</h3>
+<h3>6.1.获取流程可跳转节点</h3>
+<p><img src="./img/image-20201102103213522.png" alt="image-20201102103213522" /></p>
+<h5>接口定义如下：</h5>
+<table style="text-align:center">
+    <tr bgcolor="yellow">
+        <td style="width:12%">接口名称</td>
+        <td style="width:17%">接口调用方式</td>
+        <td style="width:12%">参数</td>
+        <td style="width:12%">能否为空</td>
+        <td>参数含义</td>
+    </tr>
+    <tr>
+        <td rowspan="7">获取可跳转节点</td>
+        <td rowspan="7">GET</td>
+    </tr>
+    <tr>
+        <td>ApiReq</td>
+        <td>否</td>
+        <td style="text-align:left">系统必传请求参数</td>
+    </tr>
+    <tr>
+        <td>taskId</td>
+        <td>否</td>
+        <td style="text-align:left">当前任务Id</td>
+    </tr>
+    <tr>
+        <td>instanceId</td>
+        <td>否</td>
+        <td style="text-align:left">流程实例Id</td>
+    </tr>
+    <tr>
+        <td>flag</td>
+        <td>否</td>
+        <td style="text-align:left">传入值为1时，获取历史可跳转节点。传入值为2时，获取当前登录人办理过得可跳转节点。
+        </td>
+    </tr>
+</table>
+<blockquote>
+<p>代码示例：</p>
+</blockquote>
+<p><img src="./img/image-20201102104416008.png" alt="image-20201102104416008" /></p>
+<p>上图接口可获取到当前任务可跳转的任务节点。</p>
+<h3>6.2.任意跳转接口</h3>
+<p><img src="./img/image-20201020175001736.png" alt="image-20201020175001736" /></p>
+<h5>接口定义如下：</h5>
+<h6><span style="color:red">注意：targetId和changeType有且只能有一个值。即当changeType不为空时，targetId必须为空。反之targetId不为空时，changeType必须为空</span></h6>
+<table style="text-align:center">
+    <tr bgcolor="yellow">
+        <td style="width:12%">接口名称</td>
+        <td style="width:17%">接口调用方式</td>
+        <td style="width:12%">参数</td>
+        <td style="width:12%">能否为空</td>
+        <td>参数含义</td>
+    </tr>
+    <tr>
+        <td rowspan="7">任意跳转</td>
+        <td rowspan="7">PUT</td>
+    </tr>
+    <tr>
+        <td>ApiReq</td>
+        <td>否</td>
+        <td style="text-align:left">系统必传请求参数</td>
+    </tr>
+    <tr>
+        <td>instanceId</td>
+        <td>否</td>
+        <td style="text-align:left">流程实例Id</td>
+    </tr>
+    <tr>
+        <td>taskid</td>
+        <td>否</td>
+        <td style="text-align:left">任务Id</td>
+    </tr>
+    <tr>
+        <td>targetId</td>
+        <td>能</td>
+        <td style="text-align:left">需要跳转到某节点的activity_id，
+            <span style="color:red">与changeType只能有一个值不为空
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <td>changeType</td>
+        <td>能</td>
+        <td style="text-align:left">为1时代表回到开始节点，为2时代表跳到结束，为空时，根据targetId跳转到对应的任务节点</td>
+    </tr>
+    <tr>
+        <td>variables</td>
+        <td>能</td>
+        <td style="text-align:left">map类型。业务参数，跳转到某一节点需要参数时使用</td>
+    </tr>
+</table>
+<blockquote>
+<p>代码示例</p>
+</blockquote>
+<p><img src="./img/image-20201102104751043.png" alt="image-20201102104751043" /></p>
+<h3>流程示例：<a href="./file/dddd.bpmn20.xml">流程文件</a></h3>
+<blockquote>
+<h1>7、IBPM任务驳回到指定节点，指定节点完成后回到驳回前节点</h1>
+<h3>7.1.如下图流程中，从D节点驳回到A节点，A节点完成后，流程回到D节点。</h3>
+<p><img src="./img/image-20201020135438819.png" alt="image-20201020135438819" /></p>
+<h3>7.2.当按照流程图任务走到D节点时调用任意跳转接口，跳转到A节点。</h3>
+<p><img src="./img/image-20201020175001736.png" alt="image-20201020175001736" /></p>
+<h5>接口定义如下：</h5>
+<h6><span style="color:red">注意：targetId和changeType有且只能有一个值。即当changeType不为空时，targetId必须为空。反之targetId不为空时，changeType必须为空</span></h6>
+<table style="text-align:center">
+    <tr bgcolor="yellow">
+        <td style="width:12%">接口名称</td>
+        <td style="width:17%">接口调用方式</td>
+        <td style="width:12%">参数</td>
+        <td style="width:12%">能否为空</td>
+        <td>参数含义</td>
+    </tr>
+    <tr>
+        <td rowspan="7">任意跳转</td>
+        <td rowspan="7">PUT</td>
+    </tr>
+    <tr>
+        <td>ApiReq</td>
+        <td>否</td>
+        <td style="text-align:left">系统必传请求参数</td>
+    </tr>
+    <tr>
+        <td>instanceId</td>
+        <td>否</td>
+        <td style="text-align:left">流程实例Id</td>
+    </tr>
+    <tr>
+        <td>taskid</td>
+        <td>否</td>
+        <td style="text-align:left">任务Id</td>
+    </tr>
+    <tr>
+        <td>targetId</td>
+        <td>能</td>
+        <td style="text-align:left">需要跳转到某节点的activity_id，
+            <span style="color:red">与changeType只能有一个值不为空
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <td>changeType</td>
+        <td>能</td>
+        <td style="text-align:left">为1时代表回到开始节点，为2时代表跳到结束，为空时，根据targetId跳转到对应的任务节点</td>
+    </tr>
+    <tr>
+        <td>variables</td>
+        <td>能</td>
+        <td style="text-align:left">map类型。业务参数，跳转到某一节点需要参数时使用</td>
+    </tr>
+</table>
+<p>代码示例：</p>
+<p><code>java
+@Test
+public void nodechangeArbitrarilyActivityList() {
+    apiReq.setTenantId(1L);    
+    processInstanceApi.
+        changeArbitrarilyActivity(apiReq,
+                                  &quot;97e36328-1299-11eb-b826-005056c00001&quot;,
+                                  &quot;60d271af-129a-11eb-b826-005056c00001&quot;,
+                                  &quot;sid-E6DA8F94-BE92-42FD-8D3C-C037B1BC7440&quot;,
+                                  &quot;&quot;,
+                                  new HashMap&lt;&gt;());
+}</code></p>
+<h3>7.3.此时流程已经在A节点上。要跳回D节点需调用另一个接口（回原节点）</h3>
+<p><img src="./img/image-20201020174544131.png" alt="image-20201020174544131" /></p>
+<h5>接口定义如下：</h5>
+<table style="text-align:center">
+    <tr bgcolor="yellow">
+        <td style="width:12%">接口名称</td>
+        <td style="width:17%">接口调用方式</td>
+        <td style="width:12%">参数</td>
+        <td style="width:12%">能否为空</td>
+        <td>参数含义</td>
+    </tr>
+    <tr>
+        <td rowspan="7">回到原点</td>
+        <td rowspan="7">POST</td>
+    </tr>
+    <tr>
+        <td>ApiReq</td>
+        <td>否</td>
+        <td style="text-align:left">系统必传请求参数</td>
+    </tr>
+    <tr>
+        <td>taskid</td>
+        <td>否</td>
+        <td style="text-align:left">当前流程所在节点的任务Id</td>
+    </tr>
+    <tr>
+        <td>variables</td>
+        <td>能</td>
+        <td style="text-align:left">map类型。业务参数，跳转到某一节点需要参数时使用</td>
+    </tr>
+</table>
+<p>代码示例：</p>
+<p><code>java
+@Test
+public void back() { 
+    apiReq.setTenantId(1L); 
+    processInstanceApi.back(apiReq,
+                            &quot;a940c5a4-129a-11eb-b826-005056c00001&quot;,new HashMap&lt;&gt;());
+}</code></p>
+<h3>调用成功后即流程回到D节点。</h3>
+<p>流程示例: <a href="./file/lbtest2.bpmn20.xml">流程文件</a></p>
+</blockquote>
+<h1>8、IBPM节点任务委派</h1>
+<h5>简介：如图1.0.1为例当任务在未结束前任意节点时，可将任务委派给其他人。假如当任务处在业务经理节点时，这时候业务经理A领取了任务，然后把任务委派给了业务经理B。这时候业务经理A无法完成该任务，只有业务经理B完成委派任务后，任务会自动回来业务经理A，由业务经理A继续推动流程。</h5>
+<p><img src="img/image-20201021135429909.png" alt="image-20201021135429909" /></p>
+<p>示例：当任务处在业务经理处，业务经理A领取后，任务转派给业务经理B或其他人时，需要调用如下接口</p>
+<p><img src="img/image-20201021140136187.png" alt="image-20201021140136187" /></p>
+<p>接口定义如下：</p>
+<table style="text-align:center">
+    <tr bgcolor="yellow">
+        <td style="width:12%">接口名称</td>
+        <td style="width:17%">接口调用方式</td>
+        <td style="width:12%">参数</td>
+        <td style="width:12%">能否为空</td>
+        <td>参数含义</td>
+    </tr>
+    <tr>
+        <td rowspan="7">回到原点</td>
+        <td rowspan="7">POST</td>
+    </tr>
+    <tr>
+        <td>ApiReq</td>
+        <td>否</td>
+        <td style="text-align:left">系统必传请求参数</td>
+    </tr>
+    <tr>
+        <td>taskid</td>
+        <td>否</td>
+        <td style="text-align:left">当前流程所在节点的任务Id</td>
+    </tr>
+    <tr>
+        <td>userName</td>
+        <td>否</td>
+        <td style="text-align:left">被委派人信息。</td>
+    </tr>
+</table>
+<p>代码示例：</p>
+<p><img src="img/image-20201021140815036.png" alt="image-20201021140815036" /></p>
+<h5>调用完成后即任务被指派给指定用户。被指派人调用完成任务接口即可完成指派任务。</h5>
+<p><img src="img/image-20201021140806263.png" alt="image-20201021140806263" /></p>
+<p>完成后由业务经理A即可继续推进流程。</p>
+<p>流程示例：<a href="./file/lbtest4.bpmn20.xml">流程文件</a></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

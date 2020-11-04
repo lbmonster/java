@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
+  <process id="LB-TEST" name="LB-TEST" isExecutable="true">
+    <extensionElements>
+      <flowable:executionListener event="start" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmEventListener"></flowable:executionListener>
+      <flowable:executionListener event="end" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmEventListener"></flowable:executionListener>
+      <flowable:eventListener events="PROCESS_CANCELLED,PROCESS_COMPLETED,PROCESS_COMPLETED_WITH_TERMINATE_END_EVENT,PROCESS_COMPLETED_WITH_ERROR_END_EVENT,PROCESS_CREATED,PROCESS_STARTED,TASK_ASSIGNED,TASK_COMPLETED,TASK_CREATED" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmEventListener"></flowable:eventListener>
+      <flowable:eventListener events="TIMER_FIRED,TIMER_SCHEDULED" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:eventListener>
+    </extensionElements>
+    <startEvent id="start1"></startEvent>
+    <parallelGateway id="sid-752228BE-7CF6-46AA-9223-CE272E3E1E87"></parallelGateway>
+    <userTask id="sid-BCD62420-178E-4C41-9C45-DAAAEA082795" name="业务经理" flowable:candidateGroups="1909161754476129834">
+      <extensionElements>
+        <flowable:taskListener event="create" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener">
+          <flowable:field name="actionUrl">
+            <flowable:string><![CDATA[src/components/bhproduct/orderDialog/index.vue]]></flowable:string>
+          </flowable:field>
+          <flowable:field name="original">
+            <flowable:string><![CDATA[1]]></flowable:string>
+          </flowable:field>
+        </flowable:taskListener>
+        <flowable:taskListener event="assignment" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener">
+          <flowable:field name="actionUrl">
+            <flowable:string><![CDATA[src/components/bhproduct/orderDialog/index.vue]]></flowable:string>
+          </flowable:field>
+          <flowable:field name="original">
+            <flowable:string><![CDATA[1]]></flowable:string>
+          </flowable:field>
+        </flowable:taskListener>
+        <flowable:taskListener event="complete" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener">
+          <flowable:field name="actionUrl">
+            <flowable:string><![CDATA[src/components/bhproduct/orderDialog/index.vue]]></flowable:string>
+          </flowable:field>
+        </flowable:taskListener>
+        <flowable:taskListener event="delete" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener">
+          <flowable:field name="actionUrl">
+            <flowable:string><![CDATA[src/components/bhproduct/orderDialog/index.vue]]></flowable:string>
+          </flowable:field>
+          <flowable:field name="original">
+            <flowable:string><![CDATA[1]]></flowable:string>
+          </flowable:field>
+        </flowable:taskListener>
+        <modeler:group-info-name-1909161754476129834 xmlns:modeler="http://flowable.org/modeler"><![CDATA[业务助理]]></modeler:group-info-name-1909161754476129834>
+        <modeler:activiti-idm-candidate-group xmlns:modeler="http://flowable.org/modeler"><![CDATA[true]]></modeler:activiti-idm-candidate-group>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <userTask id="sid-FDF4675B-0867-4DF5-B183-E43D80745059" name="风控经理审核" flowable:candidateGroups="1910141547430538216">
+      <extensionElements>
+        <flowable:taskListener event="create" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener">
+          <flowable:field name="actionUrl">
+            <flowable:string><![CDATA[src/components/bhproduct/orderDialog/index.vue]]></flowable:string>
+          </flowable:field>
+          <flowable:field name="original">
+            <flowable:string><![CDATA[1]]></flowable:string>
+          </flowable:field>
+        </flowable:taskListener>
+        <flowable:taskListener event="assignment" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener">
+          <flowable:field name="actionUrl">
+            <flowable:string><![CDATA[src/components/bhproduct/orderDialog/index.vue]]></flowable:string>
+          </flowable:field>
+          <flowable:field name="original">
+            <flowable:string><![CDATA[1]]></flowable:string>
+          </flowable:field>
+        </flowable:taskListener>
+        <flowable:taskListener event="complete" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener">
+          <flowable:field name="actionUrl">
+            <flowable:string><![CDATA[src/components/bhproduct/orderDialog/index.vue]]></flowable:string>
+          </flowable:field>
+          <flowable:field name="original">
+            <flowable:string><![CDATA[1]]></flowable:string>
+          </flowable:field>
+        </flowable:taskListener>
+        <flowable:taskListener event="delete" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener">
+          <flowable:field name="actionUrl">
+            <flowable:string><![CDATA[src/components/bhproduct/orderDialog/index.vue]]></flowable:string>
+          </flowable:field>
+          <flowable:field name="original">
+            <flowable:string><![CDATA[1]]></flowable:string>
+          </flowable:field>
+        </flowable:taskListener>
+        <modeler:group-info-name-1910141547430538216 xmlns:modeler="http://flowable.org/modeler"><![CDATA[随时付风控经理]]></modeler:group-info-name-1910141547430538216>
+        <modeler:activiti-idm-candidate-group xmlns:modeler="http://flowable.org/modeler"><![CDATA[true]]></modeler:activiti-idm-candidate-group>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <userTask id="sid-C8707334-FFD8-45EA-A83A-6E1E2CDA1041" name="业务总监审核" flowable:candidateGroups="1910141547203501636">
+      <extensionElements>
+        <flowable:taskListener event="create" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <flowable:taskListener event="assignment" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <flowable:taskListener event="complete" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <flowable:taskListener event="delete" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <modeler:group-info-name-1910141547203501636 xmlns:modeler="http://flowable.org/modeler"><![CDATA[随时付业务总监]]></modeler:group-info-name-1910141547203501636>
+        <modeler:activiti-idm-candidate-group xmlns:modeler="http://flowable.org/modeler"><![CDATA[true]]></modeler:activiti-idm-candidate-group>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <userTask id="sid-69546A80-485B-4616-B062-60591EFBA345" name="独立审批审核" flowable:candidateGroups="1910141548334752424">
+      <extensionElements>
+        <flowable:taskListener event="create" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <flowable:taskListener event="assignment" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <flowable:taskListener event="complete" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <flowable:taskListener event="delete" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <modeler:group-info-name-1910141548334752424 xmlns:modeler="http://flowable.org/modeler"><![CDATA[随时付独立审批人]]></modeler:group-info-name-1910141548334752424>
+        <modeler:activiti-idm-candidate-group xmlns:modeler="http://flowable.org/modeler"><![CDATA[true]]></modeler:activiti-idm-candidate-group>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <userTask id="sid-6243670A-83DF-4700-8893-28BC5FCFDA61" name="运营审核" flowable:candidateGroups="1909161624519951657">
+      <extensionElements>
+        <flowable:taskListener event="create" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <flowable:taskListener event="assignment" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <flowable:taskListener event="complete" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <flowable:taskListener event="delete" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <modeler:group-info-name-1909161624519951657 xmlns:modeler="http://flowable.org/modeler"><![CDATA[IT岗]]></modeler:group-info-name-1909161624519951657>
+        <modeler:activiti-idm-candidate-group xmlns:modeler="http://flowable.org/modeler"><![CDATA[true]]></modeler:activiti-idm-candidate-group>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <userTask id="sid-7C45A627-41EF-457F-8988-58E7F4D70A7F" name="总经理审核" flowable:candidateGroups="1909041444354785515">
+      <extensionElements>
+        <flowable:taskListener event="create" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <flowable:taskListener event="assignment" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <flowable:taskListener event="complete" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <flowable:taskListener event="delete" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <modeler:group-info-name-1909041444354785515 xmlns:modeler="http://flowable.org/modeler"><![CDATA[总经理]]></modeler:group-info-name-1909041444354785515>
+        <modeler:activiti-idm-candidate-group xmlns:modeler="http://flowable.org/modeler"><![CDATA[true]]></modeler:activiti-idm-candidate-group>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <userTask id="sid-1272C60B-05B0-4DE3-A580-780369821F87" name="法务审核" flowable:candidateGroups="1910141548566021615">
+      <extensionElements>
+        <flowable:taskListener event="create" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <flowable:taskListener event="assignment" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <flowable:taskListener event="complete" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <flowable:taskListener event="delete" class="com.cdyfsz.base.biz.svc.newbpm.listener.BpmTaskListener"></flowable:taskListener>
+        <modeler:group-info-name-1910141548566021615 xmlns:modeler="http://flowable.org/modeler"><![CDATA[随时付法务经理]]></modeler:group-info-name-1910141548566021615>
+        <modeler:activiti-idm-candidate-group xmlns:modeler="http://flowable.org/modeler"><![CDATA[true]]></modeler:activiti-idm-candidate-group>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-E4A298EB-A483-46B2-8910-3B7D6DF4C348" sourceRef="sid-BCD62420-178E-4C41-9C45-DAAAEA082795" targetRef="sid-752228BE-7CF6-46AA-9223-CE272E3E1E87"></sequenceFlow>
+    <endEvent id="sid-B0FA0467-12D5-4FC7-8E89-B12E78A9E308"></endEvent>
+    <sequenceFlow id="sid-52022747-F78C-4967-B488-A4A5E4CB66DD" sourceRef="sid-C8707334-FFD8-45EA-A83A-6E1E2CDA1041" targetRef="sid-7C45A627-41EF-457F-8988-58E7F4D70A7F">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${isPass=="1"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-CB52E944-25EE-4C0A-8C7B-C7BA0C6C7F57" sourceRef="sid-69546A80-485B-4616-B062-60591EFBA345" targetRef="sid-6243670A-83DF-4700-8893-28BC5FCFDA61">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${isPass=="1"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-31674DA3-A574-44F6-B484-4799AB7DB355" sourceRef="sid-7C45A627-41EF-457F-8988-58E7F4D70A7F" targetRef="sid-1272C60B-05B0-4DE3-A580-780369821F87">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${isPass=="1"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-0CBBFCC6-5D56-4ACB-8BB6-0A76EC840D98" sourceRef="sid-752228BE-7CF6-46AA-9223-CE272E3E1E87" targetRef="sid-FDF4675B-0867-4DF5-B183-E43D80745059"></sequenceFlow>
+    <sequenceFlow id="sid-9051C935-0206-476E-BEE4-1830DD6EC789" sourceRef="sid-FDF4675B-0867-4DF5-B183-E43D80745059" targetRef="sid-69546A80-485B-4616-B062-60591EFBA345">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${isPass=="1"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-7642A2B4-34F2-4080-AA70-3E18BBA63D2F" sourceRef="sid-752228BE-7CF6-46AA-9223-CE272E3E1E87" targetRef="sid-C8707334-FFD8-45EA-A83A-6E1E2CDA1041"></sequenceFlow>
+    <sequenceFlow id="sid-DF3938EC-9F5E-48A6-9DCB-D64BBE3A7F3B" sourceRef="start1" targetRef="sid-BCD62420-178E-4C41-9C45-DAAAEA082795"></sequenceFlow>
+    <serviceTask id="sid-8B29C234-6CAD-4145-924A-2D51D9BA09AF" name="http任务" flowable:type="http">
+      <extensionElements>
+        <flowable:field name="requestMethod">
+          <flowable:string><![CDATA[PUT]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="requestUrl">
+          <flowable:expression><![CDATA[${http_url}]]></flowable:expression>
+        </flowable:field>
+        <flowable:field name="requestHeaders">
+          <flowable:expression><![CDATA[${http_header}]]></flowable:expression>
+        </flowable:field>
+        <flowable:field name="requestBody">
+          <flowable:expression><![CDATA[${http_parameter_body}]]></flowable:expression>
+        </flowable:field>
+        <flowable:field name="requestBodyEncoding">
+          <flowable:string><![CDATA[UTF-8]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="requestTimeout">
+          <flowable:string><![CDATA[60000]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="responseVariableName">
+          <flowable:string><![CDATA[responseVar]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="saveRequestVariables">
+          <flowable:string><![CDATA[true]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="saveResponseParameters">
+          <flowable:string><![CDATA[true]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="resultVariablePrefix">
+          <flowable:string><![CDATA[seven_]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="saveResponseVariableAsJson">
+          <flowable:string><![CDATA[true]]></flowable:string>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <parallelGateway id="sid-34AB91A9-75F3-45F1-85A9-1757CD5B7C81"></parallelGateway>
+    <sequenceFlow id="sid-9D181FA4-E3CA-4003-88A0-3DB2B0A9FB8E" sourceRef="sid-6243670A-83DF-4700-8893-28BC5FCFDA61" targetRef="sid-34AB91A9-75F3-45F1-85A9-1757CD5B7C81"></sequenceFlow>
+    <sequenceFlow id="sid-848FAA47-DDC8-4FAF-B1FB-9AA8CEC4C5A3" sourceRef="sid-1272C60B-05B0-4DE3-A580-780369821F87" targetRef="sid-34AB91A9-75F3-45F1-85A9-1757CD5B7C81">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${isPass=="1"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-D771C705-C9C0-40E8-ADD0-24B8BF8B88E0" sourceRef="sid-34AB91A9-75F3-45F1-85A9-1757CD5B7C81" targetRef="sid-B0FA0467-12D5-4FC7-8E89-B12E78A9E308"></sequenceFlow>
+    <sequenceFlow id="sid-DA63A299-6224-4E6A-A1E9-A33AFC8715A2" sourceRef="sid-EF348F43-D776-4BC7-AAD2-785F7AD4003E" targetRef="sid-8B29C234-6CAD-4145-924A-2D51D9BA09AF"></sequenceFlow>
+    <boundaryEvent id="sid-EF348F43-D776-4BC7-AAD2-785F7AD4003E" attachedToRef="sid-FDF4675B-0867-4DF5-B183-E43D80745059" cancelActivity="true">
+      <timerEventDefinition>
+        <timeDuration>PT10S</timeDuration>
+      </timerEventDefinition>
+    </boundaryEvent>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_LB-TEST">
+    <bpmndi:BPMNPlane bpmnElement="LB-TEST" id="BPMNPlane_LB-TEST">
+      <bpmndi:BPMNShape bpmnElement="start1" id="BPMNShape_start1">
+        <omgdc:Bounds height="30.0" width="30.0" x="30.0" y="301.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-752228BE-7CF6-46AA-9223-CE272E3E1E87" id="BPMNShape_sid-752228BE-7CF6-46AA-9223-CE272E3E1E87">
+        <omgdc:Bounds height="40.0" width="40.0" x="270.0" y="296.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-BCD62420-178E-4C41-9C45-DAAAEA082795" id="BPMNShape_sid-BCD62420-178E-4C41-9C45-DAAAEA082795">
+        <omgdc:Bounds height="80.0" width="100.0" x="120.0" y="276.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-FDF4675B-0867-4DF5-B183-E43D80745059" id="BPMNShape_sid-FDF4675B-0867-4DF5-B183-E43D80745059">
+        <omgdc:Bounds height="80.0" width="100.0" x="390.0" y="210.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-C8707334-FFD8-45EA-A83A-6E1E2CDA1041" id="BPMNShape_sid-C8707334-FFD8-45EA-A83A-6E1E2CDA1041">
+        <omgdc:Bounds height="80.0" width="100.0" x="390.0" y="330.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-69546A80-485B-4616-B062-60591EFBA345" id="BPMNShape_sid-69546A80-485B-4616-B062-60591EFBA345">
+        <omgdc:Bounds height="80.0" width="100.0" x="645.0" y="210.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-6243670A-83DF-4700-8893-28BC5FCFDA61" id="BPMNShape_sid-6243670A-83DF-4700-8893-28BC5FCFDA61">
+        <omgdc:Bounds height="80.0" width="100.0" x="915.0" y="210.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-7C45A627-41EF-457F-8988-58E7F4D70A7F" id="BPMNShape_sid-7C45A627-41EF-457F-8988-58E7F4D70A7F">
+        <omgdc:Bounds height="80.0" width="100.0" x="645.0" y="330.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-1272C60B-05B0-4DE3-A580-780369821F87" id="BPMNShape_sid-1272C60B-05B0-4DE3-A580-780369821F87">
+        <omgdc:Bounds height="80.0" width="100.0" x="915.0" y="330.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-B0FA0467-12D5-4FC7-8E89-B12E78A9E308" id="BPMNShape_sid-B0FA0467-12D5-4FC7-8E89-B12E78A9E308">
+        <omgdc:Bounds height="28.0" width="28.0" x="1200.0" y="390.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-8B29C234-6CAD-4145-924A-2D51D9BA09AF" id="BPMNShape_sid-8B29C234-6CAD-4145-924A-2D51D9BA09AF">
+        <omgdc:Bounds height="80.0" width="100.0" x="570.0" y="120.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-34AB91A9-75F3-45F1-85A9-1757CD5B7C81" id="BPMNShape_sid-34AB91A9-75F3-45F1-85A9-1757CD5B7C81">
+        <omgdc:Bounds height="40.0" width="40.0" x="1131.0" y="296.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-EF348F43-D776-4BC7-AAD2-785F7AD4003E" id="BPMNShape_sid-EF348F43-D776-4BC7-AAD2-785F7AD4003E">
+        <omgdc:Bounds height="31.0" width="31.0" x="422.7270433889917" y="194.31298348381245"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-52022747-F78C-4967-B488-A4A5E4CB66DD" id="BPMNEdge_sid-52022747-F78C-4967-B488-A4A5E4CB66DD">
+        <omgdi:waypoint x="489.9499999999562" y="370.0"></omgdi:waypoint>
+        <omgdi:waypoint x="645.0" y="370.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-7642A2B4-34F2-4080-AA70-3E18BBA63D2F" id="BPMNEdge_sid-7642A2B4-34F2-4080-AA70-3E18BBA63D2F">
+        <omgdi:waypoint x="290.5" y="335.43232276119403"></omgdi:waypoint>
+        <omgdi:waypoint x="290.5" y="370.0"></omgdi:waypoint>
+        <omgdi:waypoint x="390.0" y="370.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-E4A298EB-A483-46B2-8910-3B7D6DF4C348" id="BPMNEdge_sid-E4A298EB-A483-46B2-8910-3B7D6DF4C348">
+        <omgdi:waypoint x="219.94999999997563" y="316.0"></omgdi:waypoint>
+        <omgdi:waypoint x="270.0" y="316.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-CB52E944-25EE-4C0A-8C7B-C7BA0C6C7F57" id="BPMNEdge_sid-CB52E944-25EE-4C0A-8C7B-C7BA0C6C7F57">
+        <omgdi:waypoint x="744.9499999999563" y="250.0"></omgdi:waypoint>
+        <omgdi:waypoint x="914.9999999998876" y="250.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-9051C935-0206-476E-BEE4-1830DD6EC789" id="BPMNEdge_sid-9051C935-0206-476E-BEE4-1830DD6EC789">
+        <omgdi:waypoint x="489.95000000000005" y="250.0"></omgdi:waypoint>
+        <omgdi:waypoint x="644.9999999999606" y="250.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-DF3938EC-9F5E-48A6-9DCB-D64BBE3A7F3B" id="BPMNEdge_sid-DF3938EC-9F5E-48A6-9DCB-D64BBE3A7F3B">
+        <omgdi:waypoint x="59.94999883049306" y="316.0"></omgdi:waypoint>
+        <omgdi:waypoint x="120.0" y="316.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-848FAA47-DDC8-4FAF-B1FB-9AA8CEC4C5A3" id="BPMNEdge_sid-848FAA47-DDC8-4FAF-B1FB-9AA8CEC4C5A3">
+        <omgdi:waypoint x="1014.9499999999998" y="369.5578947368421"></omgdi:waypoint>
+        <omgdi:waypoint x="1145.959349593496" y="330.9479674796748"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-0CBBFCC6-5D56-4ACB-8BB6-0A76EC840D98" id="BPMNEdge_sid-0CBBFCC6-5D56-4ACB-8BB6-0A76EC840D98">
+        <omgdi:waypoint x="288.53125" y="297.4550387247839"></omgdi:waypoint>
+        <omgdi:waypoint x="288.53125" y="247.0"></omgdi:waypoint>
+        <omgdi:waypoint x="390.0" y="249.0096967196204"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-9D181FA4-E3CA-4003-88A0-3DB2B0A9FB8E" id="BPMNEdge_sid-9D181FA4-E3CA-4003-88A0-3DB2B0A9FB8E">
+        <omgdi:waypoint x="1014.9499999999999" y="263.8898395721925"></omgdi:waypoint>
+        <omgdi:waypoint x="1146.4956085319948" y="300.4769874476987"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-D771C705-C9C0-40E8-ADD0-24B8BF8B88E0" id="BPMNEdge_sid-D771C705-C9C0-40E8-ADD0-24B8BF8B88E0">
+        <omgdi:waypoint x="1159.3958333333333" y="327.55311459027325"></omgdi:waypoint>
+        <omgdi:waypoint x="1205.8620355869134" y="392.60097486760776"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-31674DA3-A574-44F6-B484-4799AB7DB355" id="BPMNEdge_sid-31674DA3-A574-44F6-B484-4799AB7DB355">
+        <omgdi:waypoint x="744.9499999999999" y="370.0"></omgdi:waypoint>
+        <omgdi:waypoint x="915.0" y="370.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-DA63A299-6224-4E6A-A1E9-A33AFC8715A2" id="BPMNEdge_sid-DA63A299-6224-4E6A-A1E9-A33AFC8715A2">
+        <omgdi:waypoint x="454.099934845429" y="206.03280494142254"></omgdi:waypoint>
+        <omgdi:waypoint x="569.9999999999999" y="173.8638083253055"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
